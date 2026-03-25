@@ -51,7 +51,7 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
 
-    <nav class="bg-white shadow-md sticky top-0 z-[100]">
+  <nav class="bg-white shadow-md sticky top-0 z-[100]">
         <div class="container mx-auto px-4 md:px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
@@ -62,7 +62,7 @@
                     <a href="#home" class="hover:text-yellow-600 transition">Beranda</a>
                     <a href="#keunggulan" class="hover:text-yellow-600 transition">Mengapa Kami</a>
                     <a href="#paket" class="hover:text-yellow-600 transition">Paket Umroh</a>
-                    <a href="#testimoni" class="hover:text-yellow-600 transition">Testimoni</a>
+                    <button onclick="openTesti()" class="hover:text-yellow-600 transition font-bold text-blue-900">Testimoni</button>
                 </div>
 
                 <div class="flex items-center space-x-2 md:space-x-4">
@@ -80,7 +80,7 @@
                 <a href="#home" class="mobile-link py-2 border-b border-gray-100">Beranda</a>
                 <a href="#keunggulan" class="mobile-link py-2 border-b border-gray-100">Mengapa Kami</a>
                 <a href="#paket" class="mobile-link py-2 border-b border-gray-100">Paket Umroh</a>
-                <a href="#testimoni" class="mobile-link py-2 border-b border-gray-100">Testimoni</a>
+                <button onclick="openTesti(); toggleMobileMenu();" class="mobile-link text-left py-2 border-b border-gray-100 font-bold text-blue-900">Testimoni</button>
             </div>
         </div>
     </nav>
@@ -289,61 +289,60 @@
                             <li><i class="fas fa-hotel text-blue-500 mr-2"></i> Mekkah Hotel Bintang 4</li>
                         </ul>
                     </div>
-                    <div class="p-8 pt-0"><a href="https://wa.me/6289673404089" class="block py-3 bg-blue-900 text-white text-center rounded-xl font-bold">Tanya Stok</a></div>
+                    <div class="p-8 pt-0"><a href="https://wa.me/6289673404089" class="block py-3 bg-blue-900 text-white text-center rounded-xl font-bold">Pilih Paket</a></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimoni" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-2xl md:text-4xl font-bold text-center mb-16 text-blue-900 uppercase tracking-wide">Apa Kata Jamaah Kami?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Alhamdulillah, pelayanan Samira Travel sangat luar biasa. Pembimbingnya sabar dan fasilitas hotelnya benar-benar dekat dengan Masjidil Haram."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center font-bold text-blue-900 mr-4 text-xs">AH</div>
-                        <div>
-                            <h4 class="font-bold text-blue-900 text-sm">Bpk. Ahmad Hidayat</h4>
-                            <p class="text-[10px] text-gray-500 uppercase tracking-wider">Jamaah Umroh Januari 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Sangat terbantu dengan sistem handlingnya. Dari bandara sampai hotel semua diurus dengan rapi, kami tinggal fokus ibadah saja."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center font-bold text-pink-900 mr-4 text-xs">SR</div>
-                        <div>
-                            <h4 class="font-bold text-blue-900 text-sm">Ibu Siti Rahma</h4>
-                            <p class="text-[10px] text-gray-500 uppercase tracking-wider">Jamaah Umroh Februari 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                    <div class="flex text-yellow-500 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Proses pendaftaran sangat mudah dan transparan. Kepastian keberangkatannya bikin tenang di hati. Terima kasih Samira Travel!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center font-bold text-green-900 mr-4 text-xs">BN</div>
-                        <div>
-                            <h4 class="font-bold text-blue-900 text-sm">Bpk. Bambang N.</h4>
-                            <p class="text-[10px] text-gray-500 uppercase tracking-wider">Jamaah Umroh Ramadhan 2025</p>
-                        </div>
-                    </div>
-                </div>
+    <div id="testiModal" class="fixed inset-0 z-[999] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col relative shadow-2xl">
+        
+        <div class="p-5 border-b flex justify-between items-center bg-blue-950 text-white">
+            <div>
+                <h2 class="text-xl font-bold text-yellow-500">Galeri Video Jamaah</h2>
+                <p class="text-xs text-blue-200">Kisah nyata & Dokumentasi Samira Travel</p>
             </div>
+            <button onclick="closeTesti()" class="bg-white/10 hover:bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </section>
+
+        <div class="p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-50">
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/1LcI6NJQHAI" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Kesaksian Jamaah Cuci Darah</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/JfUue9fJeZ8" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Haji Furodha 1445H</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/17K8uxf8-oc" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Tentang Madinah & Mekkah</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/G_JYgbUkae0" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Manasik Umroh Februari</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/wNT72Rg6LnQ" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Rombongan di Raudhoh</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/uphlE3SH42g" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Manasik Akbar Jakarta</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/icnrjJ9Iso0" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Barisan Umroh Samira</p></div>
+            <div class="space-y-2"><iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/1GPaXyCggJo" frameborder="0" allowfullscreen></iframe><p class="text-xs font-bold text-blue-900">Doa Manasik Khidmat</p></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fungsi Buka/Tutup Popup
+    function openTesti() {
+        document.getElementById('testiModal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeTesti() {
+        document.getElementById('testiModal').classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        // Menghentikan video saat modal ditutup
+        const iframes = document.querySelectorAll('#testiModal iframe');
+        iframes.forEach(iframe => {
+            const src = iframe.src;
+            iframe.src = src;
+        });
+    }
+    // Fungsi untuk menutup menu mobile otomatis saat klik testi
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.add('hidden');
+    }
+</script>
 
     <footer class="bg-blue-950 text-white py-16 px-6">
         <div class="container mx-auto grid md:grid-cols-2 gap-12">
