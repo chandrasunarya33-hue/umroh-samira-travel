@@ -51,42 +51,76 @@
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
 
-<nav class="bg-white shadow-md sticky top-0 z-[100]">
-    <div class="container mx-auto px-4 md:px-6 py-4">
+<nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-[100] border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div class="flex justify-between items-center">
             <div class="flex items-center">
-                <img src="logo-samira.webp" class="h-10 md:h-12 w-auto object-contain" alt="Logo Samira">
+                <img src="logo-samira.webp" class="h-9 md:h-12 w-auto object-contain transition-transform hover:scale-105" alt="Logo Samira">
             </div>
 
-            <div class="hidden md:flex space-x-8 font-bold text-blue-900">
-                <a href="index.html#home" class="hover:text-yellow-600 transition">Beranda</a>
-                <a href="index.html#keunggulan" class="hover:text-yellow-600 transition">Mengapa Kami</a>
-                <a href="index.html#paket" class="hover:text-yellow-600 transition">Paket Umroh</a>
-                
-                <a href="testimoni.html" class="hover:text-yellow-600 transition font-bold text-blue-900">Testimoni</a>
+            <div class="hidden md:flex items-center space-x-8 font-bold text-blue-900 text-sm tracking-wide uppercase">
+                <a href="index.html#home" class="hover:text-yellow-600 transition-colors duration-300 relative group">
+                    Beranda
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="index.html#keunggulan" class="hover:text-yellow-600 transition-colors duration-300 relative group">
+                    Mengapa Kami
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="index.html#paket" class="hover:text-yellow-600 transition-colors duration-300 relative group">
+                    Paket Umroh
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all group-hover:w-full"></span>
+                </a>
+                <a href="testimoni.html" class="hover:text-yellow-600 transition-colors duration-300 relative group">
+                    Testimoni
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all group-hover:w-full"></span>
+                </a>
             </div>
-                <div class="flex items-center space-x-2 md:space-x-4">
-                    <a href="https://wa.me/6289673404089?text=Assalamu'alaikum%20Admin%20Samira%2C%20saya%20tertarik%20ingin%20konsultasi%20mengenai%20pilihan%20Paket%20Umroh.%20Bisa%20dibantu%3F" 
-                    target="_blank" 
-                    class="bg-green-500 text-white px-5 py-2.5 rounded-full font-bold text-xs md:text-sm hover:bg-green-600 hover:scale-105 transition-all duration-300 flex items-center shadow-lg active:scale-95">
-                        <i class="fab fa-whatsapp mr-2 text-base"></i> Konsultasi
-                    </a>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/6289673404089?text=Assalamu'alaikum..." 
+                   target="_blank" 
+                   class="bg-green-500 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full font-bold text-[10px] md:text-sm hover:bg-green-600 hover:shadow-green-200 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center shadow-md active:scale-95">
+                <i class="fab fa-whatsapp mr-1 md:mr-2 text-sm md:text-base"></i> <span>Konsultasi</span>
+                </a>
                 
-                <button id="menu-btn" class="md:hidden text-blue-900 text-2xl p-1 focus:outline-none">
+                <button id="menu-btn" class="md:hidden text-blue-900 text-2xl p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none">
                     <i id="menu-icon" class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden flex-col space-y-4 pt-4 pb-4 font-bold text-blue-900 border-t mt-3">
-            <a href="index.html#home" class="mobile-link py-2 border-b border-gray-100">Beranda</a>
-            <a href="index.html#keunggulan" class="mobile-link py-2 border-b border-gray-100">Mengapa Kami</a>
-            <a href="index.html#paket" class="mobile-link py-2 border-b border-gray-100">Paket Umroh</a>
-            
-            <a href="testimoni.html" class="mobile-link py-2 border-b border-gray-100 font-bold text-blue-900">Testimoni</a>
+        <div id="mobile-menu" class="hidden flex-col space-y-1 pt-4 pb-6 font-bold text-blue-900 animate-fadeIn">
+            <a href="index.html#home" class="mobile-link py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Beranda</a>
+            <a href="index.html#keunggulan" class="mobile-link py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Mengapa Kami</a>
+            <a href="index.html#paket" class="mobile-link py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Paket Umroh</a>
+            <a href="testimoni.html" class="mobile-link py-3 px-4 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Testimoni</a>
         </div>
     </div>
 </nav>
+
+<script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', () => {
+        const isHidden = menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        
+        // Ubah icon bars ke times (silang)
+        icon.classList.toggle('fa-bars', isHidden);
+        icon.classList.toggle('fa-times', !isHidden);
+    });
+
+    // Otomatis tutup menu saat link diklik (untuk mobile)
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            icon.classList.replace('fa-times', 'fa-bars');
+        });
+    });
+</script>
 
     <header id="home" class="bg-white border-b pt-6 md:pt-12 pb-16">
         <div class="container mx-auto px-6 text-center">
@@ -390,6 +424,64 @@
 </div>
 </section>
 
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-blue-950 text-3xl font-black mb-4">Cara Mudah Daftar Umroh</h2>
+            <p class="text-gray-500 italic">4 Langkah Menuju Baitullah Bersama Samira</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                <h4 class="font-bold mb-2">Pilih Paket</h4>
+                <p class="text-xs text-gray-500">Tentukan jadwal & paket yang cocok untuk keluarga.</p>
+            </div>
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                <h4 class="font-bold mb-2">Lengkapi Berkas</h4>
+                <p class="text-xs text-gray-500">Kirim foto KTP & KK via WhatsApp Admin.</p>
+            </div>
+            <div class="text-center p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
+                <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                <h4 class="font-bold mb-2">Manasik</h4>
+                <p class="text-xs text-gray-500">Pembekalan ibadah agar umroh sesuai Sunnah.</p>
+            </div>
+            <div class="text-center p-6 bg-yellow-500 text-blue-950 rounded-3xl shadow-md scale-105">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">4</div>
+                <h4 class="font-bold mb-2">Berangkat!</h4>
+                <p class="text-xs font-medium">Terbang nyaman & fokus ibadah di Tanah Suci.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-6 max-w-3xl">
+        <h3 class="text-2xl font-black text-blue-950 mb-8 text-center">Sering Ditanyakan (FAQ)</h3>
+        <div class="space-y-4">
+            <details class="group border rounded-2xl p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-bold text-blue-900">
+                    Bisa daftar Umroh dulu bayar belakangan?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                </summary>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
+                    Bisa! Samira Travel bekerja sama dengan lembaga keuangan syariah resmi. Anda bisa berangkat dulu, cicilan dibayar setelah pulang.
+                </p>
+            </details>
+            
+            <details class="group border rounded-2xl p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-bold text-blue-900">
+                    Apakah harga sudah termasuk perlengkapan?
+                    <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                </summary>
+                <p class="mt-4 text-sm text-gray-600 leading-relaxed">
+                    Ya, harga paket sudah termasuk koper, kain ihram/mukena, seragam, tas paspor, dan perlengkapan lainnya.
+                </p>
+            </details>
+        </div>
+    </div>
+</section>
+
 <section id="blog" class="py-24 bg-white">
     <div class="container mx-auto px-6">
         
@@ -538,32 +630,80 @@
     }
 </script>
 
-    <footer class="bg-blue-950 text-white py-16 px-6">
-        <div class="container mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <span class="bg-yellow-500 text-blue-900 text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">MITRA RESMI TERVERIFIKASI</span>
-                <h4 class="text-2xl font-bold mb-4">TITIN SUPRIATINI</h4>
-                <p class="opacity-80 mb-6 max-w-md">Membantu Anda merencanakan ibadah Umroh dengan aman, nyaman, dan sesuai prosedur resmi.</p>
-                <div class="space-y-2 text-sm">
-                    <p><i class="fas fa-map-marker-alt text-yellow-500 mr-3"></i> Bekasi, Jawa Barat</p>
-                    <p><i class="fas fa-phone text-yellow-500 mr-3"></i> 0896-7340-4089</p>
+    <footer class="bg-blue-950 text-white pt-20 pb-10">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            
+            <div class="space-y-6">
+                <span class="bg-yellow-500 text-blue-950 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                    Mitra Resmi Terverifikasi
+                </span>
+                <h2 class="text-3xl font-black tracking-tight">TITIN SUPRIATINI</h2>
+                <p class="text-blue-100/70 text-sm leading-relaxed">
+                    Membantu Anda merencanakan ibadah Umroh dengan aman, nyaman, dan sesuai prosedur resmi bersama Samira Travel.
+                </p>
+                <div class="flex space-x-4 pt-2">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-950 transition-all duration-300"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-950 transition-all duration-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-blue-950 transition-all duration-300"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="md:text-right flex flex-col justify-between">
-                <div>
-                    <h4 class="font-bold mb-4 text-yellow-500 text-sm uppercase">Ikuti Kami</h4>
-                    <div class="flex md:justify-end space-x-6 text-2xl">
-                        <a href="https://facebook.com/titin.supriatini.77/" class="hover:text-yellow-500"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="hover:text-yellow-500"><i class="fab fa-tiktok"></i></a>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-yellow-500">Navigasi</h4>
+                <ul class="space-y-4 text-blue-100/80 text-sm">
+                    <li><a href="#home" class="hover:text-yellow-500 transition">Beranda</a></li>
+                    <li><a href="#paket" class="hover:text-yellow-500 transition">Pilihan Paket</a></li>
+                    <li><a href="#stats" class="hover:text-yellow-500 transition">Prestasi Kami</a></li>
+                    <li><a href="#faq" class="hover:text-yellow-500 transition">Tanya Jawab (FAQ)</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-yellow-500">Hubungi Kami</h4>
+                <ul class="space-y-4 text-sm text-blue-100/80">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-yellow-500"></i>
+                        <span>Bekasi, Jawa Barat<br><span class="text-xs opacity-60">Melayani pendaftaran seluruh Indonesia</span></span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-yellow-500"></i>
+                        <span>0896-7340-4089</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-yellow-500"></i>
+                        <span>info@samirabekasi.com</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-bold mb-6 text-yellow-500">Izin & Legalitas</h4>
+                <div class="grid grid-cols-2 gap-4 bg-white/5 p-4 rounded-2xl">
+                    <div class="text-center">
+                        <p class="text-[10px] uppercase font-bold text-white/50 mb-1">PPIU Resmi</p>
+                        <p class="text-xs font-bold">Kemenag RI</p>
+                    </div>
+                    <div class="text-center border-l border-white/10">
+                        <p class="text-[10px] uppercase font-bold text-white/50 mb-1">Anggota</p>
+                        <p class="text-xs font-bold">HIMPUH</p>
                     </div>
                 </div>
-                <div class="mt-12 opacity-50 text-[10px] md:text-xs">
-                    <p>&copy; 2026. Website Mitra Resmi Samira Travel.</p>
-                </div>
+                <p class="mt-4 text-[10px] text-blue-100/50 italic leading-tight">
+                    Samira Travel (PT. Samira Ali Wisata) terdaftar resmi sebagai penyelenggara perjalanan ibadah Umroh.
+                </p>
             </div>
         </div>
-    </footer>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-blue-100/40 space-y-4 md:space-y-0">
+            <p>© 2026 Website Mitra Resmi Samira Travel. All Rights Reserved.</p>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-white transition">Syarat & Ketentuan</a>
+                <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <a href="https://wa.me/6289673404089" 
    class="fixed bottom-6 right-6 z-[200] bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform text-3xl">
